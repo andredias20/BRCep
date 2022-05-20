@@ -5,7 +5,15 @@ public class Localizacao {
     String municipio;
     String uf;
 
-    public Localizacao(){
+    public Localizacao() {
+    }
+
+    public Localizacao(String cep, String rua, String bairro, String municipio, String uf) {
+        this.cep = cep;
+        this.rua = rua;
+        this.bairro = bairro;
+        this.municipio = municipio;
+        this.uf = uf;
     }
 
     public String getCep() {
@@ -50,9 +58,9 @@ public class Localizacao {
 
     public String toString() {
         return "Cep: " + getCep()
-                +"\nRua: " + getRua()
-                +"\nBairro: " + getBairro()
-                +"\nMunicipio: "+getMunicipio()
-                +"\nUF: "+getUf();
+                + "\nRua: " + getRua()
+                + "\nBairro: " + getBairro()
+                + "\nMunicipio: " + getMunicipio()
+                + "\nUF: " + getUf();
     }
 }

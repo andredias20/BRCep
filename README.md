@@ -1,18 +1,9 @@
-## Getting Started
+## JSON CEP Searcher
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This application is made to consume an API that retrives Adress information based on a CEP (CEP stands for Postal Address Code or "**Codigo de Endereço Postal**").
 
-## Folder Structure
+(...) 
 
-The workspace contains two folders by default, where:
+# DEVELOPMENT
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Starting the project **May, 20 2022**

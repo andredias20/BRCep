@@ -1,28 +1,50 @@
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.json.*;
+import org.json.JSONObject;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        searchCEP("8590215").toString();
+        System.out.println(
+                searchCEP("85902215"));
     }
 
     public static Localizacao searchCEP(String cep) {
-        JSONObject obj = null;
-        try {
-            URL url = new URL("http://viacep.com.br/ws/" + cep + "/json/");
-            URLConnection conUrl = url.openConnection();
-            
-            //obj = new JSONObject(HTTP.toJSONObject(/**/));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-        return new Localizacao(obj.getString("cep"), obj.getString("logradouro"), obj.getString("bairro"), obj.getString("localidade"), obj.getString("uf"));
+        if (cep.length() != 8) {
+            System.out.println("CEP Inválido");
+            return null;
+        } else {
+            String replaced = cep.replaceAll("[^0-9]*", "");
 
+            JSONObject obj = null;
+
+            try {
+                URI url = new URI("https://ws.apicep.com/cep.json?code=" + replaced);
+
+                var request = HttpRequest.newBuilder(url).GET().build();
+
+                HttpClient client = HttpClient.newHttpClient();
+                HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+                String body = response.body();
+
+                obj = new JSONObject(body);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            // (String cep, String rua, String bairro, String municipio, String uf)
+            Localizacao locale = new Localizacao(
+                    obj.getString("code"),
+                    obj.getString("address"),
+                    obj.getString("district"),
+                    obj.getString("city"),
+                    obj.getString("state"));
+
+            return locale;
+        }
     }
 }

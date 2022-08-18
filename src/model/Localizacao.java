@@ -1,4 +1,6 @@
+package model;
 public class Localizacao {
+    
     String cep;
     String rua;
     String bairro;

@@ -1,5 +1,5 @@
 package model;
-public class Localizacao {
+public class Locale {
     
     String cep;
     String rua;
@@ -7,7 +7,7 @@ public class Localizacao {
     String municipio;
     String uf;
 
-    public Localizacao(String cep, String rua, String bairro, String municipio, String uf) {
+    public Locale(String cep, String rua, String bairro, String municipio, String uf) {
         this.cep = cep;
         this.rua = rua;
         this.bairro = bairro;

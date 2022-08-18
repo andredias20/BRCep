@@ -3,7 +3,7 @@ package Interface.impl;
 import org.json.JSONObject;
 
 import Interface.cepAPI;
-import model.Localizacao;
+import model.Locale;
 
 public class apicep implements cepAPI {
 
@@ -13,8 +13,8 @@ public class apicep implements cepAPI {
     }
 
     @Override
-    public Localizacao build(JSONObject obj) {
-        Localizacao locale = new Localizacao(
+    public Locale build(JSONObject obj) {
+        Locale locale = new Locale(
                     obj.getString("code"),
                     obj.getString("address"),
                     obj.getString("district"),

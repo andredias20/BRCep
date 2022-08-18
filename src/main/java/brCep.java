@@ -6,14 +6,13 @@ import java.net.http.HttpResponse;
 import org.json.JSONObject;
 
 import Interface.cepAPI;
-import model.Localizacao;
+import model.Locale;
 
 public class brCep {
-    public static Localizacao searchCEP(String cep, cepAPI api) {
+    public static Locale search(String cep, cepAPI api) {
         String rCep = cep.replaceAll("[^0-9]*", "");
         if (rCep.length() != 8) {
-            System.out.println("CEP Inválido");
-            return null;
+            throw new RuntimeException("Invalid CEP");
         } else {
 
             JSONObject obj = null;
@@ -29,15 +28,13 @@ public class brCep {
 
                 String body = response.body();
 
-                // System.out.println(body);
-
                 obj = new JSONObject(body);
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            Localizacao locale = api.build(obj);
+            Locale locale = api.build(obj);
 
             return locale;
         }

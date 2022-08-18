@@ -1,12 +1,12 @@
 package Interface;
 import org.json.JSONObject;
 
-import model.Localizacao;
+import model.Locale;
 
 public interface cepAPI {
 
     public String link(String cep);
 
-    public Localizacao build(JSONObject obj);
+    public Locale build(JSONObject obj);
 
 }

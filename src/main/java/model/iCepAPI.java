@@ -1,4 +1,4 @@
-package Interface;
+package interface;
 import org.json.JSONObject;
 
 import model.Locale;

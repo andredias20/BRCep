@@ -5,7 +5,7 @@ import org.json.JSONObject;
 import Interface.cepAPI;
 import model.Locale;
 
-public class viacep implements cepAPI{
+public class viacep implements iCepAPI{
 
     @Override
     public String link(String cep) {
